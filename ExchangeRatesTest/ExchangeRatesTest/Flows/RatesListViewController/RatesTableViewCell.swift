@@ -11,7 +11,7 @@ class RatesTableViewCell: UITableViewCell {
 
 	let identifier: String = "ratesTableViewCell"
 
-	private let symbolImageViewWidthAnchorAndHeightAnchor: CGFloat = 0.1
+	private let symbolImageViewWidthAndHeightAnchor: CGFloat = 0.1
 	private let nameStackViewWidthAnchor: CGFloat = 0.5
 	private let cellStackViewPadding: CGFloat = 10
 
@@ -86,9 +86,9 @@ class RatesTableViewCell: UITableViewCell {
 		NSLayoutConstraint.activate([
 
 			self.symbolImageView.widthAnchor.constraint(equalTo: self.cellStackView.widthAnchor,
-														multiplier: symbolImageViewWidthAnchorAndHeightAnchor),
+														multiplier: symbolImageViewWidthAndHeightAnchor),
 			self.symbolImageView.heightAnchor.constraint(equalTo: self.cellStackView.widthAnchor,
-														 multiplier: symbolImageViewWidthAnchorAndHeightAnchor),
+														 multiplier: symbolImageViewWidthAndHeightAnchor),
 
 			self.symbolImageView.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor),
 			self.symbolImageView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor,

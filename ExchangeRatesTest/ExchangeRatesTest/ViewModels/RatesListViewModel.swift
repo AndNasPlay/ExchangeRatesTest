@@ -1,5 +1,5 @@
 //
-//  RatesViewModel.swift
+//  RatesListViewModel.swift
 //  ExchangeRatesTest
 //
 //  Created by Андрей Щекатунов on 21.05.2022.
@@ -10,7 +10,7 @@ import RxSwift
 import RxCocoa
 import UIKit
 
-class RatesViewModel {
+class RatesListViewModel {
 
 	public let rates = BehaviorSubject(value: [Rates]())
 

@@ -18,9 +18,7 @@ class AppCoordinator {
 	func start() {
 		let viewController = MainViewController()
 		let naviganionController = UINavigationController(rootViewController: viewController)
-		naviganionController.navigationBar.backgroundColor = .systemBackground
 		window.rootViewController = naviganionController
 		window.makeKeyAndVisible()
 	}
 }
-

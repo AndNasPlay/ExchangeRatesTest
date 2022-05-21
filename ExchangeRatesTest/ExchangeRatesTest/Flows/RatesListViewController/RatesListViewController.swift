@@ -11,7 +11,7 @@ import RxCocoa
 
 class RatesListViewController: UIViewController {
 
-	private var viewModel = RatesViewModel()
+	private var viewModel = RatesListViewModel()
 
 	private var disposeBag = DisposeBag()
 
@@ -40,19 +40,18 @@ class RatesListViewController: UIViewController {
 
 	func bindTableView() {
 		tableView.rx.setDelegate(self).disposed(by: disposeBag)
-		viewModel.rates.bind(to: tableView.rx.items(cellIdentifier: identifier, cellType: RatesTableViewCell.self)) { (row, item, cell) in
+		viewModel.rates.bind(to: tableView.rx.items(cellIdentifier: identifier,
+													cellType: RatesTableViewCell.self)) { (_, item, cell) in
 			let symbolImage = self.viewModel.getCurrencySymbol(value: item.currMnemTo!)
 			cell.configureCell(item: item, image: symbolImage)
 		}.disposed(by: disposeBag)
 	}
-
 
 	func addSubviews() {
 		self.view.addSubview(tableView)
 	}
 
 	func setupUI() {
-
 		NSLayoutConstraint.activate([
 			self.tableView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
 			self.tableView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor),
@@ -63,5 +62,3 @@ class RatesListViewController: UIViewController {
 }
 
 extension RatesListViewController: UITableViewDelegate { }
-
-

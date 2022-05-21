@@ -13,7 +13,7 @@ class MainViewController: UIViewController {
 		let button = UIButton()
 		button.translatesAutoresizingMaskIntoConstraints = false
 		button.backgroundColor = .redButtonColor
-		button.setTitle("Execute Payment", for: .normal)
+		button.setTitle("Currency Overview", for: .normal)
 		button.layer.cornerRadius = 50.0
 		return button
 	}()
@@ -36,9 +36,10 @@ class MainViewController: UIViewController {
 
 			self.mainButton.centerYAnchor.constraint(equalTo: self.view.centerYAnchor),
 			self.mainButton.heightAnchor.constraint(equalToConstant: 100.0),
-			self.mainButton.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 10.0),
-			self.mainButton.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -10.0),
-
+			self.mainButton.leadingAnchor.constraint(equalTo: self.view.leadingAnchor,
+													 constant: 10.0),
+			self.mainButton.trailingAnchor.constraint(equalTo: self.view.trailingAnchor,
+													  constant: -10.0)
 		])
 	}
 
