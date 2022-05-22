@@ -7,47 +7,29 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
+class MainViewController: UIViewController, MainViewControllerViewDelegate {
 
-	private(set) lazy var mainButton: UIButton = {
-		let button = UIButton()
-		button.translatesAutoresizingMaskIntoConstraints = false
-		button.backgroundColor = .redButtonColor
-		button.setTitle("Currency Overview", for: .normal)
-		button.layer.cornerRadius = 50.0
-		return button
-	}()
+	var viewModel: MainViewModel?
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-		self.view.backgroundColor = .black
-		self.navigationController?.navigationBar.isHidden = true
-		setupUI()
-		setupConstraints()
-    }
+	// swiftlint:disable force_cast
+	private var mainViewControllerView: MainViewControllerView {
+		return self.view as! MainViewControllerView
+	}
+	// swiftlint:enable force_cast
 
-	private func setupUI() {
-		self.view.addSubview(mainButton)
-		self.mainButton.addTarget(self, action: #selector(handleGetRates), for: .touchUpInside)
+	override func viewDidLoad() {
+		super.viewDidLoad()
+		updateMainView()
 	}
 
-	private func setupConstraints() {
-		NSLayoutConstraint.activate([
-
-			self.mainButton.centerYAnchor.constraint(equalTo: self.view.centerYAnchor),
-			self.mainButton.heightAnchor.constraint(equalToConstant: 100.0),
-			self.mainButton.leadingAnchor.constraint(equalTo: self.view.leadingAnchor,
-													 constant: 10.0),
-			self.mainButton.trailingAnchor.constraint(equalTo: self.view.trailingAnchor,
-													  constant: -10.0)
-		])
+	private func updateMainView() {
+		self.view = MainViewControllerView()
+		self.mainViewControllerView.delegate = self
 	}
 
 	// MARK: Delegate methods
 
-	@objc func handleGetRates() {
-		let viewController = RatesListViewController()
-		self.navigationController?.pushViewController(viewController, animated: true)
+	func getRates() {
+		viewModel?.getRates()
 	}
-
 }

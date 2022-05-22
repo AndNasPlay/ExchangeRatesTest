@@ -11,54 +11,45 @@ import RxCocoa
 
 class RatesListViewController: UIViewController {
 
-	private var viewModel = RatesListViewModel()
+	// MARK: Variables
+
+	var viewModel: RatesListViewModel?
 
 	private var disposeBag = DisposeBag()
 
-	private let identifier = RatesTableViewCell().identifier
-
-	private(set) lazy var tableView: UITableView = {
-		let tableView = UITableView(frame: .zero, style: .plain)
-		tableView.translatesAutoresizingMaskIntoConstraints = false
-		tableView.register(RatesTableViewCell.self, forCellReuseIdentifier: identifier)
-		return tableView
-	}()
+	// swiftlint:disable force_cast
+	private var ratesListView: RatesListView {
+		return self.view as! RatesListView
+	}
+	// swiftlint:enable force_cast
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		addSubviews()
-		setupUI()
-		self.navigationController?.navigationBar.isHidden = false
-		self.viewModel.fetchRates()
+		self.viewModel?.fetchRates()
+		updateMainView()
 		bindTableView()
+		navigationItem.title = viewModel?.title
 	}
 
-	override func viewWillDisappear(_ animated: Bool) {
-		super.viewWillDisappear(animated)
-		self.navigationController?.navigationBar.isHidden = true
+	private func updateMainView() {
+		self.view = RatesListView()
 	}
 
 	func bindTableView() {
-		tableView.rx.setDelegate(self).disposed(by: disposeBag)
-		viewModel.rates.bind(to: tableView.rx.items(cellIdentifier: identifier,
-													cellType: RatesTableViewCell.self)) { (_, item, cell) in
-			let symbolImage = self.viewModel.getCurrencySymbol(value: item.currMnemTo!)
-			cell.configureCell(item: item, image: symbolImage)
+		ratesListView.tableView.rx.setDelegate(self).disposed(by: disposeBag)
+		viewModel?.rates.bind(to: ratesListView.tableView.rx.items(cellIdentifier: ratesListView.identifier,
+																   cellType: RatesListTableViewCell.self)) { (_, item, cell) in
+			let fromImage = self.viewModel?.getCurrencySymbol(value: item.fromCountry)
+			let toImage = self.viewModel?.getCurrencySymbol(value: item.toCountry)
+			cell.configureCell(item: item,
+							   fromImage: (fromImage ?? UIImage(systemName: "dollarsign.circle"))!,
+							   toImage: (toImage ?? UIImage(systemName: "dollarsign.circle"))!)
 		}.disposed(by: disposeBag)
-	}
-
-	func addSubviews() {
-		self.view.addSubview(tableView)
-	}
-
-	func setupUI() {
-		NSLayoutConstraint.activate([
-			self.tableView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
-			self.tableView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor),
-			self.tableView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor),
-			self.tableView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor)
-		])
 	}
 }
 
-extension RatesListViewController: UITableViewDelegate { }
+extension RatesListViewController: UITableViewDelegate {
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		self.viewModel?.didSelectRow(at: indexPath)
+	}
+}

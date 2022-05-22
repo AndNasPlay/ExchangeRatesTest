@@ -9,42 +9,40 @@ import Foundation
 import RxSwift
 import RxCocoa
 import UIKit
+import FlagKit
 
-class RatesListViewModel {
+final class RatesListViewModel {
+
+	let title = "Курсы валют"
+
+	var coordinator: RatesListCoordinator?
 
 	public let rates = BehaviorSubject(value: [Rates]())
 
+	private let flags = CurrencySymbols().flagDictionary
+
+	private var ratesModelArray: [Rates] = [Rates]()
+
 	func fetchRates() {
 
-		NetworkManager.shared.getRequest { [unowned self] (responseModel) in
+		NetworkManager.shared.getRequestForRates { [unowned self] (responseModel) in
 
 			guard let model = responseModel else { return }
+			self.ratesModelArray = model
+			print(model)
 			self.rates.on(.next(model))
 		}
 	}
 
-	func getCurrencySymbol(value: String) -> UIImage {
-		switch value {
-		case "EUR":
-			return CurrencySymbols.EUR.image
-		case "USD":
-			return CurrencySymbols.USD.image
-		case "JPY":
-			return CurrencySymbols.JPY.image
-		case "KZT":
-			return CurrencySymbols.KZT.image
-		case "CHF":
-			return CurrencySymbols.CHF.image
-		case "CNY":
-			return CurrencySymbols.CNY.image
-		case "BYN":
-			return CurrencySymbols.BYN.image
-		case "NOK":
-			return CurrencySymbols.NOK.image
-		case "TRY":
-			return CurrencySymbols.TRY.image
-		default:
-			return UIImage(systemName: "centsign.circle")!
+	func didSelectRow(at indexPath: IndexPath) {
+		coordinator?.onSelect(rates: ratesModelArray[indexPath.row])
+	}
+
+	func getCurrencySymbol(value: Int) -> UIImage {
+		let bundle = FlagKit.assetBundle
+		guard let name = flags[value] else {
+			return UIImage(named: "CY", in: bundle, compatibleWith: nil)!
 		}
+		return UIImage(named: name, in: bundle, compatibleWith: nil)!
 	}
 }

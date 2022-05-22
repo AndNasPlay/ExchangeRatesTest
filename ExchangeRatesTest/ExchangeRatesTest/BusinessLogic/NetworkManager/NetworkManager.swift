@@ -5,35 +5,55 @@
 //  Created by Андрей Щекатунов on 21.05.2022.
 //
 
-import Foundation
+import UIKit
 
 class NetworkManager {
 
 	static let shared = NetworkManager()
 
-	let baseURL = "https://alpha.as50464.net:29870/moby-pre-44/core"
+	private let baseURL = "https://alpha.as50464.net:29870/moby-pre-44/core"
 
-	let rid = "r=BEYkZbmV"
+	private let baseURLForFlag = "https://countryflagsapi.com/png/"
 
-	let uid = "d=563B4852-6D4B-49D6-A86E-B273DD520FD2"
+	private let rid = "BEYkZbmV"
 
-	let type = "t=ExchangeRates&v=44"
+	private let uid = "563B4852-6D4B-49D6-A86E-B273DD520FD2"
+
+	private let type = "ExchangeRates&v=44"
 
 	private init() {}
 
-	func getRequest(completed: @escaping ([Rates]?) -> Void) {
+	func loadImage(flagCode: String, completion: @escaping(UIImage?) -> Void) {
 
-		let endURL = baseURL + "?\(rid)" + "&\(uid)&" + "&\(type)"
-
-		guard let url = URL(string: endURL) else {
-			completed(nil)
+		let urlString = baseURLForFlag + "\(flagCode)"
+		guard let url = URL(string: urlString) else {
+			completion(nil)
 			return
 		}
 
-		let bodyJSON: [String: Any] = [
-			"uid": "563B4852-6D4B-49D6-A86E-B273DD520FD2",
-			"type": "ExchangeRates",
-			"rid": "BEYkZbmV"
+		URLSession.shared.dataTask(with: url) { (data, _, _) in
+			guard let data = data else {
+				completion(nil)
+				return
+			}
+			let image = UIImage(data: data)
+			completion(image)
+		}.resume()
+	}
+
+	func getRequestForRates(completion: @escaping ([Rates]?) -> Void) {
+
+		let endURL = baseURL + "?r=\(rid)" + "&d=\(uid)&" + "&t=\(type)"
+
+		guard let url = URL(string: endURL) else {
+			completion(nil)
+			return
+		}
+
+		let bodyJSON: [String: String] = [
+			"uid": "\(uid)",
+			"type": "\(type)",
+			"rid": "\(rid)"
 		]
 
 		let body = try? JSONSerialization.data(withJSONObject: bodyJSON)
@@ -49,24 +69,24 @@ class NetworkManager {
 
 		let task = URLSession.shared.dataTask(with: request) { data, response, error in
 			guard let data = data else {
-				completed(nil)
+				completion(nil)
 				return
 			}
 			guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-				completed(nil)
+				completion(nil)
 				return
 			}
 
 			do {
 				let responseData = try JSONDecoder().decode(RatesResults.self, from: data)
 				guard let dataForArray = responseData.rates else {
-					completed(nil)
+					completion(nil)
 					return
 				}
-				completed(dataForArray)
+				completion(dataForArray)
 			} catch {
 				print(error.localizedDescription)
-				completed(nil)
+				completion(nil)
 			}
 		}
 		task.resume()
