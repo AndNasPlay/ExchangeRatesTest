@@ -6,10 +6,11 @@
 //
 
 import UIKit
+import FlagKit
 import RxSwift
 import RxCocoa
 
-class RatesDetailViewController: UIViewController {
+final class RatesDetailViewController: UIViewController {
 
 	// MARK: Variables
 
@@ -18,30 +19,35 @@ class RatesDetailViewController: UIViewController {
 	private var disposeBag = DisposeBag()
 
 	// swiftlint:disable force_cast
-	private var ratesListView: RatesListView {
-		return self.view as! RatesListView
+	private var ratesDetailView: RatesDetailView {
+		return self.view as! RatesDetailView
 	}
 	// swiftlint:enable force_cast
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-//		self.viewModel
 		updateMainView()
-//		bindTableView()
+		viewModel?.getSequence()
+		bindTableView()
+	}
+
+	override func viewDidDisappear(_ animated: Bool) {
+		super.viewDidDisappear(animated)
+		viewModel?.viewDidDisappear()
 	}
 
 	private func updateMainView() {
-		self.view = RatesListView()
+		self.view = RatesDetailView()
+		self.viewModel?.configureView(view: self.ratesDetailView)
 	}
 
-//	func bindTableView() {
-//		ratesListView.tableView.rx.setDelegate(self).disposed(by: disposeBag)
-//		viewModel.rates.bind(to: ratesListView.tableView.rx.items(cellIdentifier: ratesListView.identifier,
-//																  cellType: RatesListTableViewCell.self)) { (_, item, cell) in
-//			let symbolImage = self.viewModel.getCurrencySymbol(value: item.currMnemTo!)
-//			cell.configureCell(item: item, image: symbolImage)
-//		}.disposed(by: disposeBag)
-//	}
+	func bindTableView() {
+		ratesDetailView.tableView.rx.setDelegate(self).disposed(by: disposeBag)
+		viewModel?.ratesSequence.bind(to: ratesDetailView.tableView.rx.items(cellIdentifier: ratesDetailView.identifier,
+																   cellType: RatesDetailTableViewCell.self)) { (indexPath, item, cell) in
+			cell.configureCell(ratesValue: item, counter: indexPath)
+		}.disposed(by: disposeBag)
+	}
 }
 
 extension RatesDetailViewController: UITableViewDelegate { }

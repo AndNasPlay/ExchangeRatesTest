@@ -31,7 +31,7 @@ class RatesListView: UIView {
 		stackView.translatesAutoresizingMaskIntoConstraints = false
 		stackView.axis = .horizontal
 		stackView.distribution = .equalSpacing
-		stackView.backgroundColor = .redStackViewColor
+		stackView.backgroundColor = .mainRedColor
 		stackView.layoutMargins = mainStackViewUIEdgeInsets
 		stackView.isLayoutMarginsRelativeArrangement = true
 		return stackView
@@ -115,8 +115,4 @@ class RatesListView: UIView {
 			self.tableView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor)
 		])
 	}
-
-	// MARK: Delegate methods
-
-	@objc func handleFromDateSelectedValueChanged() {}
 }

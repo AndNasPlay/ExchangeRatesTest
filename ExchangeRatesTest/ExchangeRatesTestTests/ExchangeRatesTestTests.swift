@@ -10,17 +10,26 @@ import XCTest
 
 class ExchangeRatesTestTests: XCTestCase {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
+//    override func setUpWithError() throws {
+//        // Put setup code here. This method is called before the invocation of each test method in the class.
+//    }
+//
+//    override func tearDownWithError() throws {
+//        // Put teardown code here. This method is called after the invocation of each test method in the class.
+//    }
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() throws {
-
-    }
+	func testGetData() throws {
+		let getData = try XCTUnwrap(NetworkManager.shared)
+		getData.getRequestForRates { response, message in
+			switch response {
+			case .some(let model):
+				XCTAssertEqual(model.rates?.count ?? 0 > 0, true)
+			case .none:
+				XCTFail(message ?? "")
+			}
+		}
+		waitForExpectations(timeout: 10)
+	}
 
     func testPerformanceExample() throws {
         // This is an example of a performance test case.

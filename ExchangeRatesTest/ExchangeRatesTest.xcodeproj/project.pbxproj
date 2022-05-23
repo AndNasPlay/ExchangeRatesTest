@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		166D5187283ABF8B0084BE52 /* FlagKit in Frameworks */ = {isa = PBXBuildFile; productRef = 166D5186283ABF8B0084BE52 /* FlagKit */; };
+		167D8587283C1FE2003C806B /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167D8586283C1FE1003C806B /* Coordinator.swift */; };
 		16BE14C2283933B400C7307E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BE14C1283933B400C7307E /* AppDelegate.swift */; };
 		16BE14C4283933B400C7307E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BE14C3283933B400C7307E /* SceneDelegate.swift */; };
 		16BE14C6283933B400C7307E /* RatesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BE14C5283933B400C7307E /* RatesListViewController.swift */; };
@@ -57,6 +58,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		167D8586283C1FE1003C806B /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		16BE14BE283933B400C7307E /* ExchangeRatesTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExchangeRatesTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		16BE14C1283933B400C7307E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		16BE14C3283933B400C7307E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -182,8 +184,8 @@
 		16BE14FA2839370900C7307E /* BusinessLogic */ = {
 			isa = PBXGroup;
 			children = (
-				16BE151D283A45C000C7307E /* Coordinators */,
 				16BE14C3283933B400C7307E /* SceneDelegate.swift */,
+				16BE151D283A45C000C7307E /* Coordinators */,
 				16BE150528393E6400C7307E /* NetworkManager */,
 			);
 			path = BusinessLogic;
@@ -267,6 +269,7 @@
 		16BE151D283A45C000C7307E /* Coordinators */ = {
 			isa = PBXGroup;
 			children = (
+				167D8586283C1FE1003C806B /* Coordinator.swift */,
 				16BE150C2839561C00C7307E /* AppCoordinator.swift */,
 				16BE152A283A68C000C7307E /* MainCoordinator.swift */,
 				16BE151E283A469600C7307E /* RatesListCoordinator.swift */,
@@ -453,6 +456,7 @@
 				16BE15092839418300C7307E /* NetworkManager.swift in Sources */,
 				16BE14C6283933B400C7307E /* RatesListViewController.swift in Sources */,
 				16BE1523283A60A000C7307E /* RatesDetailTableViewCell.swift in Sources */,
+				167D8587283C1FE2003C806B /* Coordinator.swift in Sources */,
 				16BE14C2283933B400C7307E /* AppDelegate.swift in Sources */,
 				16BE150B283945C000C7307E /* RatesListTableViewCell.swift in Sources */,
 				16BE1527283A619F00C7307E /* RatesDetailViewModel.swift in Sources */,

@@ -38,10 +38,11 @@ class MainViewControllerView: UIView {
 		let button = UIButton()
 		button.translatesAutoresizingMaskIntoConstraints = false
 		button.backgroundColor = UIColor.white.withAlphaComponent(0.5)
-		button.setTitle("Актуальные курсы валют", for: .normal)
+		button.setTitle("Курсы валют", for: .normal)
 		button.setTitleColor(.black, for: .normal)
 		button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
 		button.layer.cornerRadius = mainButtonHeightAnchor / 4
+		button.titleLabel?.adjustsFontSizeToFitWidth = true
 		return button
 	}()
 

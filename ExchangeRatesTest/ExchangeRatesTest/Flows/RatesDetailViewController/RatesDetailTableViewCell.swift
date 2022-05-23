@@ -11,49 +11,58 @@ class RatesDetailTableViewCell: UITableViewCell {
 
 	// MARK: Variables
 
-	let identifier: String = "ratesTableViewCell"
+	let identifier: String = "ratesDetailTableViewCell"
 
-	private let symbolImageViewWidthAndHeightAnchor: CGFloat = 0.1
-	private let nameStackViewWidthAnchor: CGFloat = 0.5
-	private let cellStackViewPadding: CGFloat = 10
+	private let symbolImageViewWidthAndHeightAnchor: CGFloat = 50.0
+	private let titleLableWidthAnchor: CGFloat = 0.3
+	private let labelFontSize: CGFloat = 18.0
+	private(set) lazy var stackViewPadding: CGFloat = 20.0
+	private(set) lazy var stackViewSpacing: CGFloat = 20.0
+	private(set) lazy var stackViewCornerRadius: CGFloat = 15.0
+	private(set) lazy var stackViewBorderWidth: CGFloat = 1.0
+	private(set) lazy var stackViewEdgeInsets: NSDirectionalEdgeInsets = NSDirectionalEdgeInsets(top: 20,
+																								 leading: 20,
+																								 bottom: 20,
+																								 trailing: 20)
 
 	// MARK: - Subviews
 
 	private(set) lazy var symbolImageView: UIImageView = {
 		let image = UIImageView()
 		image.translatesAutoresizingMaskIntoConstraints = false
-		image.tintColor = .black
+		image.tintColor = .mainRedColor
+		image.image = UIImage(systemName: "diamond.circle.fill")
+		image.contentMode = .scaleAspectFill
 		return image
 	}()
 
-	private(set) lazy var nameLable: UILabel = {
+	private(set) lazy var titleLable: UILabel = {
 		let lable = UILabel()
+		lable.textAlignment = .left
+		lable.font = UIFont.systemFont(ofSize: labelFontSize, weight: .semibold)
+		return lable
+	}()
+
+	private(set) lazy var subtitleLable: UILabel = {
+		let lable = UILabel()
+		lable.textAlignment = .left
+		lable.font = UIFont.systemFont(ofSize: labelFontSize, weight: .semibold)
 		lable.numberOfLines = 0
 		return lable
 	}()
 
-	private(set) lazy var abbreviationNameLable: UILabel = {
-		let lable = UILabel()
-		lable.numberOfLines = 0
-		return lable
-	}()
-
-	private(set) lazy var priceLable: UILabel = {
-		let lable = UILabel()
-		lable.sizeToFit()
-		return lable
-	}()
-
-	private(set) lazy var cellStackView: UIStackView = {
+	private(set) lazy var lablesStackView: UIStackView = {
 		let stack = UIStackView()
 		stack.axis = .horizontal
 		stack.translatesAutoresizingMaskIntoConstraints = false
-		return stack
-	}()
-
-	private(set) lazy var nameStackView: UIStackView = {
-		let stack = UIStackView()
-		stack.axis = .vertical
+		stack.layer.borderColor = UIColor.lightGray.cgColor
+		stack.spacing = stackViewSpacing
+		stack.distribution = .fill
+		stack.isLayoutMarginsRelativeArrangement = true
+		stack.directionalLayoutMargins = stackViewEdgeInsets
+		stack.layer.borderWidth = stackViewBorderWidth
+		stack.layer.borderColor = UIColor.lightGray.cgColor
+		stack.layer.cornerRadius = stackViewCornerRadius
 		return stack
 	}()
 
@@ -61,6 +70,7 @@ class RatesDetailTableViewCell: UITableViewCell {
 
 	override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
 		super.init(style: .default, reuseIdentifier: identifier)
+		selectionStyle = .none
 		setupUI()
 		setupConstraints()
 	}
@@ -69,23 +79,39 @@ class RatesDetailTableViewCell: UITableViewCell {
 		super.init(coder: coder)
 	}
 
-	func configureCell(item: Rates, image: UIImage) {
-		self.nameLable.text = item.name
-		self.abbreviationNameLable.text = item.currMnemTo
-		self.symbolImageView.image = image
-		self.priceLable.text = "1 \(item.currMnemTo) = \(item.buy) RUB"
+	func configureCell(ratesValue: String, counter: Int) {
+		switch counter {
+		case 0:
+			self.titleLable.text = "Name:"
+			self.subtitleLable.text = ratesValue
+		case 1:
+			self.titleLable.text = "Buy:"
+			self.subtitleLable.text = ratesValue
+		case 2:
+			self.titleLable.text = "DeltaBuy:"
+			self.subtitleLable.text = ratesValue
+		case 3:
+			self.titleLable.text = "Sale:"
+			self.subtitleLable.text = ratesValue
+		case 4:
+			self.titleLable.text = "DeltaSale:"
+			self.subtitleLable.text = ratesValue
+		case 5:
+			self.titleLable.text = "Basic:"
+			self.subtitleLable.text = ratesValue
+		case 6:
+			self.titleLable.text = "Tp:"
+			self.subtitleLable.text = ratesValue
+		default:
+			break
+		}
 	}
 
 	private func setupUI() {
-
-		self.nameStackView.addArrangedSubview(abbreviationNameLable)
-		self.nameStackView.addArrangedSubview(nameLable)
-
-		self.contentView.addSubview(symbolImageView)
-		self.cellStackView.addArrangedSubview(nameStackView)
-		self.cellStackView.addArrangedSubview(priceLable)
-
-		self.contentView.addSubview(cellStackView)
+		self.lablesStackView.addArrangedSubview(symbolImageView)
+		self.lablesStackView.addArrangedSubview(titleLable)
+		self.lablesStackView.addArrangedSubview(subtitleLable)
+		self.contentView.addSubview(lablesStackView)
 	}
 
 	// MARK: - Constraints init
@@ -93,26 +119,19 @@ class RatesDetailTableViewCell: UITableViewCell {
 	private func setupConstraints() {
 		NSLayoutConstraint.activate([
 
-			self.symbolImageView.widthAnchor.constraint(equalTo: self.cellStackView.widthAnchor,
-														multiplier: symbolImageViewWidthAndHeightAnchor),
-			self.symbolImageView.heightAnchor.constraint(equalTo: self.cellStackView.widthAnchor,
-														 multiplier: symbolImageViewWidthAndHeightAnchor),
+			self.symbolImageView.widthAnchor.constraint(equalToConstant: symbolImageViewWidthAndHeightAnchor),
 
-			self.symbolImageView.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor),
-			self.symbolImageView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor,
-														  constant: cellStackViewPadding),
+			self.titleLable.widthAnchor.constraint(equalTo: self.lablesStackView.widthAnchor,
+												   multiplier: titleLableWidthAnchor),
 
-			self.nameStackView.widthAnchor.constraint(equalTo: self.cellStackView.widthAnchor,
-													  multiplier: nameStackViewWidthAnchor),
-
-			self.cellStackView.topAnchor.constraint(equalTo: self.contentView.topAnchor,
-													constant: cellStackViewPadding),
-			self.cellStackView.leadingAnchor.constraint(equalTo: self.symbolImageView.trailingAnchor,
-														constant: cellStackViewPadding),
-			self.cellStackView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor,
-														 constant: -cellStackViewPadding),
-			self.cellStackView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor,
-													   constant: -cellStackViewPadding)
+			self.lablesStackView.topAnchor.constraint(equalTo: self.contentView.topAnchor,
+													  constant: stackViewPadding),
+			self.lablesStackView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor,
+														  constant: stackViewPadding),
+			self.lablesStackView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor,
+														   constant: -stackViewPadding),
+			self.lablesStackView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor,
+														 constant: -stackViewPadding)
 		])
 	}
 }

@@ -11,6 +11,6 @@ extension UIColor {
 
 	// MARK: Main Colors
 
-	static let redStackViewColor = UIColor(named: "RedStackViewColor") ?? .red
+	static let mainRedColor = UIColor(named: "RedStackViewColor") ?? .red
 
 }

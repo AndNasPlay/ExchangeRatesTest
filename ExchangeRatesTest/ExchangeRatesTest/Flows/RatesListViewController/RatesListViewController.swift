@@ -9,7 +9,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class RatesListViewController: UIViewController {
+final class RatesListViewController: UIViewController {
 
 	// MARK: Variables
 
@@ -25,10 +25,14 @@ class RatesListViewController: UIViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		self.viewModel?.fetchRates()
 		updateMainView()
 		bindTableView()
+		viewModel?.fetchRates()
 		navigationItem.title = viewModel?.title
+		navigationItem.rightBarButtonItem = .init(image: UIImage(systemName: "info.circle.fill"),
+												  style: .plain,
+												  target: self,
+												  action: #selector(handleFromDateSelectedValueChanged))
 	}
 
 	private func updateMainView() {
@@ -45,6 +49,17 @@ class RatesListViewController: UIViewController {
 							   fromImage: (fromImage ?? UIImage(systemName: "dollarsign.circle"))!,
 							   toImage: (toImage ?? UIImage(systemName: "dollarsign.circle"))!)
 		}.disposed(by: disposeBag)
+	}
+
+	private func showAlert(_ title: String, message: String) {
+		let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+		let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+		alertController.addAction(action)
+		present(alertController, animated: true, completion: nil)
+	}
+
+	@objc func handleFromDateSelectedValueChanged() {
+		showAlert("Info", message: viewModel?.alertMessage ?? "")
 	}
 }
 

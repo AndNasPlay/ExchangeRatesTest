@@ -32,11 +32,5 @@ final class MainCoordinator: Coordinator {
 		ratesListCoordinator.start()
 	}
 
-	func childDidFinish(_ childCoordinator: Coordinator) {
-		if let index = childCoordinators.firstIndex(where: { (coordinator) -> Bool in
-			return childCoordinator === coordinator
-		}) {
-			childCoordinators.remove(at: index)
-		}
-	}
+	func childDidFinish(_ childCoordinator: Coordinator) { }
 }

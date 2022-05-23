@@ -5,7 +5,6 @@
 //  Created by Андрей Щекатунов on 21.05.2022.
 //
 
-import Foundation
 import RxSwift
 import RxCocoa
 import UIKit
@@ -19,18 +18,20 @@ final class RatesListViewModel {
 
 	public let rates = BehaviorSubject(value: [Rates]())
 
-	private let flags = CurrencySymbols().flagDictionary
+	private let flags = CurrencySymbols.shared.flagDictionary
 
 	private var ratesModelArray: [Rates] = [Rates]()
 
+	var alertMessage: String = ""
+
 	func fetchRates() {
 
-		NetworkManager.shared.getRequestForRates { [unowned self] (responseModel) in
+		NetworkManager.shared.getRequestForRates { [unowned self] (responseModel, massage) in
 
-			guard let model = responseModel else { return }
+			guard let model = responseModel?.rates else { return }
 			self.ratesModelArray = model
-			print(model)
 			self.rates.on(.next(model))
+			alertMessage = massage ?? ""
 		}
 	}
 

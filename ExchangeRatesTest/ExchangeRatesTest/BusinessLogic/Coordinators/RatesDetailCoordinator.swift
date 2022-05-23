@@ -27,14 +27,12 @@ final class RatesDetailCoordinator: Coordinator {
 		let ratesDetailViewModel = RatesDetailViewModel(rates: rates)
 		ratesDetailViewModel.coordinator = self
 		ratesDetailViewController.viewModel = ratesDetailViewModel
-		navigationController.setViewControllers([ratesDetailViewController], animated: false)
+		navigationController.pushViewController(ratesDetailViewController, animated: true)
 	}
 
-	func childDidFinish(_ childCoordinator: Coordinator) {
-		if let index = childCoordinators.firstIndex(where: { (coordinator) -> Bool in
-			return childCoordinator === coordinator
-		}) {
-			childCoordinators.remove(at: index)
-		}
+	func didFinish() {
+		parentCoordinator?.childDidFinish(self)
 	}
+
+	func childDidFinish(_ childCoordinator: Coordinator) { }
 }

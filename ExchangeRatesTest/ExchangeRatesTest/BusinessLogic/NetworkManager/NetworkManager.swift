@@ -13,8 +13,6 @@ class NetworkManager {
 
 	private let baseURL = "https://alpha.as50464.net:29870/moby-pre-44/core"
 
-	private let baseURLForFlag = "https://countryflagsapi.com/png/"
-
 	private let rid = "BEYkZbmV"
 
 	private let uid = "563B4852-6D4B-49D6-A86E-B273DD520FD2"
@@ -23,30 +21,12 @@ class NetworkManager {
 
 	private init() {}
 
-	func loadImage(flagCode: String, completion: @escaping(UIImage?) -> Void) {
-
-		let urlString = baseURLForFlag + "\(flagCode)"
-		guard let url = URL(string: urlString) else {
-			completion(nil)
-			return
-		}
-
-		URLSession.shared.dataTask(with: url) { (data, _, _) in
-			guard let data = data else {
-				completion(nil)
-				return
-			}
-			let image = UIImage(data: data)
-			completion(image)
-		}.resume()
-	}
-
-	func getRequestForRates(completion: @escaping ([Rates]?) -> Void) {
+	func getRequestForRates(completion: @escaping (RatesResults?, String?) -> Void) {
 
 		let endURL = baseURL + "?r=\(rid)" + "&d=\(uid)&" + "&t=\(type)"
 
 		guard let url = URL(string: endURL) else {
-			completion(nil)
+			completion(nil, "Ошибка Url Адреса")
 			return
 		}
 
@@ -69,24 +49,30 @@ class NetworkManager {
 
 		let task = URLSession.shared.dataTask(with: request) { data, response, error in
 			guard let data = data else {
-				completion(nil)
+				completion(nil, "Ошибка data")
 				return
 			}
 			guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-				completion(nil)
+				completion(nil, "Ошибка statusCode")
 				return
 			}
 
 			do {
 				let responseData = try JSONDecoder().decode(RatesResults.self, from: data)
-				guard let dataForArray = responseData.rates else {
-					completion(nil)
-					return
-				}
-				completion(dataForArray)
+				let alertMessage = """
+ Message: \(responseData.message ?? "12"),
+ Product State: \(responseData.productState ?? 12),
+ DownloadDate: \(responseData.downloadDate ?? "12"),
+ Rid: \(responseData.rid ?? "12"),
+ RatesDate: \(responseData.ratesDate ?? "12"),
+ MessageTitle: \(responseData.messageTitle ?? "12"),
+ Code: \(responseData.code ?? 12)
+ """
+				completion(responseData, alertMessage)
+
 			} catch {
 				print(error.localizedDescription)
-				completion(nil)
+				completion(nil, error.localizedDescription)
 			}
 		}
 		task.resume()

@@ -7,12 +7,6 @@
 
 import UIKit
 
-protocol Coordinator: AnyObject {
-	var childCoordinators: [Coordinator] { get }
-	func start()
-	func childDidFinish(_ childCoordinator: Coordinator)
-}
-
 final class AppCoordinator: Coordinator {
 
 	var childCoordinators: [Coordinator] = []
@@ -25,6 +19,7 @@ final class AppCoordinator: Coordinator {
 
 	func start() {
 		let naviganionController = UINavigationController()
+		naviganionController.navigationBar.tintColor = .mainRedColor
 		let mainCoordinator = MainCoordinator(navigationController: naviganionController)
 		naviganionController.isNavigationBarHidden = false
 		childCoordinators.append(mainCoordinator)

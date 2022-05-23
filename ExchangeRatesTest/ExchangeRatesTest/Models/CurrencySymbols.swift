@@ -7,7 +7,9 @@
 
 import UIKit
 
-struct CurrencySymbols {
+class CurrencySymbols {
+
+	static let shared = CurrencySymbols()
 
 	let flagDictionary: [Int: String] = [
 		124: "CA",
