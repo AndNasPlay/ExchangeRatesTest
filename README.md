@@ -5,7 +5,7 @@ _Написать iOS мобильное приложение по отобра�
 ## About
 
 ![alt text](https://github.com/AndNasPlay/ExchangeRatesTest/blob/main/ReadmeFiles/firstScreen.jpg "screen")
-##
+
 ![alt text](https://github.com/AndNasPlay/ExchangeRatesTest/blob/main/ReadmeFiles/secondScreen.jpg "screen")
 
 ## Features
