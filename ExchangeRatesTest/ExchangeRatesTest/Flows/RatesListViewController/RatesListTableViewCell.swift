@@ -7,7 +7,7 @@
 
 import UIKit
 
-class RatesListTableViewCell: UITableViewCell {
+final class RatesListTableViewCell: UITableViewCell {
 
 	// MARK: Variables
 

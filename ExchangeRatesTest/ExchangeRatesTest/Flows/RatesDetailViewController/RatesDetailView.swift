@@ -7,11 +7,12 @@
 
 import UIKit
 
-class RatesDetailView: UIView {
+final class RatesDetailView: UIView {
 
 	// MARK: Variables
 
 	let identifier = RatesDetailTableViewCell().identifier
+
 	private let mainStackViewHeightAnchor: CGFloat = 50.0
 	private let mainStackViewPadding: CGFloat = 20.0
 	private let tableViewTopAnchor: CGFloat = 20.0

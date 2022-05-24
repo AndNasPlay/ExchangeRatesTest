@@ -59,15 +59,16 @@ class NetworkManager {
 
 			do {
 				let responseData = try JSONDecoder().decode(RatesResults.self, from: data)
-				let alertMessage = """
- Message: \(responseData.message ?? "12"),
- Product State: \(responseData.productState ?? 12),
- DownloadDate: \(responseData.downloadDate ?? "12"),
- Rid: \(responseData.rid ?? "12"),
- RatesDate: \(responseData.ratesDate ?? "12"),
- MessageTitle: \(responseData.messageTitle ?? "12"),
- Code: \(responseData.code ?? 12)
- """
+				let alertMessage =
+									  """
+									  Message: \(responseData.message ?? "message"),
+									  Product State: \(responseData.productState ?? 0),
+									  DownloadDate: \(responseData.downloadDate ?? "Download Date"),
+									  Rid: \(responseData.rid ?? "Rid"),
+									  RatesDate: \(responseData.ratesDate ?? "RatesDate"),
+									  MessageTitle: \(responseData.messageTitle ?? "MessageTitle"),
+									  Code: \(responseData.code ?? 0)
+									  """
 				completion(responseData, alertMessage)
 
 			} catch {

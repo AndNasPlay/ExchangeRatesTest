@@ -13,6 +13,8 @@ final class RatesListCoordinator: Coordinator {
 
 	private let navigationController: UINavigationController
 
+	let ratesListViewController = RatesListViewController()
+
 	var parentCoordinator: MainCoordinator?
 
 	init(navigationController: UINavigationController) {
@@ -20,7 +22,6 @@ final class RatesListCoordinator: Coordinator {
 	}
 
 	func start() {
-		let ratesListViewController: RatesListViewController = RatesListViewController()
 		let ratesListViewModel = RatesListViewModel()
 		ratesListViewModel.coordinator = self
 		ratesListViewController.viewModel = ratesListViewModel
@@ -32,6 +33,13 @@ final class RatesListCoordinator: Coordinator {
 		ratesDetailCoordinator.parentCoordinator = self
 		childCoordinators.append(ratesDetailCoordinator)
 		ratesDetailCoordinator.start()
+	}
+
+	func getInfo(message: String) {
+		let alertController = UIAlertController(title: "Information", message: message, preferredStyle: .alert)
+		let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+		alertController.addAction(action)
+		ratesListViewController.present(alertController, animated: true, completion: nil)
 	}
 
 	func childDidFinish(_ childCoordinator: Coordinator) {

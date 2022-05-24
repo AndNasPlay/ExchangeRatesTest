@@ -1,0 +1,24 @@
+{
+  "configurations" : [
+    {
+      "id" : "7488D06F-924A-43BB-92A9-8FA89C12D29B",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:ExchangeRatesTest.xcodeproj",
+        "identifier" : "16BE14DD283933B800C7307E",
+        "name" : "ExchangeRatesTestUITests"
+      }
+    }
+  ],
+  "version" : 1
+}

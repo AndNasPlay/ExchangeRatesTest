@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		166D5187283ABF8B0084BE52 /* FlagKit in Frameworks */ = {isa = PBXBuildFile; productRef = 166D5186283ABF8B0084BE52 /* FlagKit */; };
 		167D8587283C1FE2003C806B /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167D8586283C1FE1003C806B /* Coordinator.swift */; };
+		167D8589283CED59003C806B /* GetCurrencyFlag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167D8588283CED59003C806B /* GetCurrencyFlag.swift */; };
+		167D858B283CF295003C806B /* ExchangeRatesTestGetCurrencyFlagTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167D858A283CF295003C806B /* ExchangeRatesTestGetCurrencyFlagTest.swift */; };
 		16BE14C2283933B400C7307E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BE14C1283933B400C7307E /* AppDelegate.swift */; };
 		16BE14C4283933B400C7307E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BE14C3283933B400C7307E /* SceneDelegate.swift */; };
 		16BE14C6283933B400C7307E /* RatesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BE14C5283933B400C7307E /* RatesListViewController.swift */; };
@@ -16,7 +18,6 @@
 		16BE14CE283933B800C7307E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16BE14CC283933B800C7307E /* LaunchScreen.storyboard */; };
 		16BE14D9283933B800C7307E /* ExchangeRatesTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BE14D8283933B800C7307E /* ExchangeRatesTestTests.swift */; };
 		16BE14E3283933B800C7307E /* ExchangeRatesTestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BE14E2283933B800C7307E /* ExchangeRatesTestUITests.swift */; };
-		16BE14E5283933B800C7307E /* ExchangeRatesTestUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BE14E4283933B800C7307E /* ExchangeRatesTestUITestsLaunchTests.swift */; };
 		16BE14F32839341600C7307E /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 16BE14F22839341600C7307E /* RxCocoa */; };
 		16BE14F52839341600C7307E /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 16BE14F42839341600C7307E /* RxSwift */; };
 		16BE15002839380900C7307E /* Rates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BE14FF2839380900C7307E /* Rates.swift */; };
@@ -59,6 +60,10 @@
 
 /* Begin PBXFileReference section */
 		167D8586283C1FE1003C806B /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		167D8588283CED59003C806B /* GetCurrencyFlag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCurrencyFlag.swift; sourceTree = "<group>"; };
+		167D858A283CF295003C806B /* ExchangeRatesTestGetCurrencyFlagTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRatesTestGetCurrencyFlagTest.swift; sourceTree = "<group>"; };
+		167D858E283D0228003C806B /* FastTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = FastTests.xctestplan; sourceTree = "<group>"; };
+		167D858F283D025E003C806B /* SlowTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = SlowTests.xctestplan; sourceTree = "<group>"; };
 		16BE14BE283933B400C7307E /* ExchangeRatesTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExchangeRatesTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		16BE14C1283933B400C7307E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		16BE14C3283933B400C7307E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -70,7 +75,6 @@
 		16BE14D8283933B800C7307E /* ExchangeRatesTestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRatesTestTests.swift; sourceTree = "<group>"; };
 		16BE14DE283933B800C7307E /* ExchangeRatesTestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExchangeRatesTestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		16BE14E2283933B800C7307E /* ExchangeRatesTestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRatesTestUITests.swift; sourceTree = "<group>"; };
-		16BE14E4283933B800C7307E /* ExchangeRatesTestUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRatesTestUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		16BE14FF2839380900C7307E /* Rates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rates.swift; sourceTree = "<group>"; };
 		16BE15012839385600C7307E /* RatesResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesResults.swift; sourceTree = "<group>"; };
 		16BE1503283938B100C7307E /* RatesListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesListViewModel.swift; sourceTree = "<group>"; };
@@ -123,6 +127,8 @@
 		16BE14B5283933B400C7307E = {
 			isa = PBXGroup;
 			children = (
+				167D858E283D0228003C806B /* FastTests.xctestplan */,
+				167D858F283D025E003C806B /* SlowTests.xctestplan */,
 				16BE14C0283933B400C7307E /* ExchangeRatesTest */,
 				16BE14D7283933B800C7307E /* ExchangeRatesTestTests */,
 				16BE14E1283933B800C7307E /* ExchangeRatesTestUITests */,
@@ -157,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				16BE14D8283933B800C7307E /* ExchangeRatesTestTests.swift */,
+				167D858A283CF295003C806B /* ExchangeRatesTestGetCurrencyFlagTest.swift */,
 			);
 			path = ExchangeRatesTestTests;
 			sourceTree = "<group>";
@@ -165,7 +172,6 @@
 			isa = PBXGroup;
 			children = (
 				16BE14E2283933B800C7307E /* ExchangeRatesTestUITests.swift */,
-				16BE14E4283933B800C7307E /* ExchangeRatesTestUITestsLaunchTests.swift */,
 			);
 			path = ExchangeRatesTestUITests;
 			sourceTree = "<group>";
@@ -262,6 +268,7 @@
 			isa = PBXGroup;
 			children = (
 				16BE15162839713500C7307E /* UIColorExtension.swift */,
+				167D8588283CED59003C806B /* GetCurrencyFlag.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -444,6 +451,7 @@
 				16BE150D2839561D00C7307E /* AppCoordinator.swift in Sources */,
 				16BE15142839704600C7307E /* MainViewController.swift in Sources */,
 				16BE151F283A469600C7307E /* RatesListCoordinator.swift in Sources */,
+				167D8589283CED59003C806B /* GetCurrencyFlag.swift in Sources */,
 				16BE152B283A68C000C7307E /* MainCoordinator.swift in Sources */,
 				16BE1521283A5D7500C7307E /* RatesDetailView.swift in Sources */,
 				16BE15002839380900C7307E /* Rates.swift in Sources */,
@@ -469,6 +477,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				167D858B283CF295003C806B /* ExchangeRatesTestGetCurrencyFlagTest.swift in Sources */,
 				16BE14D9283933B800C7307E /* ExchangeRatesTestTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -478,7 +487,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				16BE14E3283933B800C7307E /* ExchangeRatesTestUITests.swift in Sources */,
-				16BE14E5283933B800C7307E /* ExchangeRatesTestUITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -638,6 +646,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -666,6 +675,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

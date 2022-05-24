@@ -1,0 +1,37 @@
+{
+  "configurations" : [
+    {
+      "id" : "74924169-6B9B-49CB-B619-4EFE0389D9D2",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : {
+      "targets" : [
+        {
+          "containerPath" : "container:ExchangeRatesTest.xcodeproj",
+          "identifier" : "16BE14BD283933B400C7307E",
+          "name" : "ExchangeRatesTest"
+        }
+      ]
+    },
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:ExchangeRatesTest.xcodeproj",
+      "identifier" : "16BE14BD283933B400C7307E",
+      "name" : "ExchangeRatesTest"
+    }
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:ExchangeRatesTest.xcodeproj",
+        "identifier" : "16BE14D3283933B800C7307E",
+        "name" : "ExchangeRatesTestTests"
+      }
+    }
+  ],
+  "version" : 1
+}

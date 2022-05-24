@@ -7,7 +7,7 @@
 
 import UIKit
 
-class RatesListView: UIView {
+final class RatesListView: UIView {
 
 	// MARK: Variables
 

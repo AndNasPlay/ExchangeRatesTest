@@ -8,7 +8,6 @@
 import RxSwift
 import RxCocoa
 import UIKit
-import FlagKit
 
 final class RatesListViewModel {
 
@@ -18,7 +17,7 @@ final class RatesListViewModel {
 
 	public let rates = BehaviorSubject(value: [Rates]())
 
-	private let flags = CurrencySymbols.shared.flagDictionary
+	let getCurrencyFlag = GetCurrencyFlag()
 
 	private var ratesModelArray: [Rates] = [Rates]()
 
@@ -39,11 +38,8 @@ final class RatesListViewModel {
 		coordinator?.onSelect(rates: ratesModelArray[indexPath.row])
 	}
 
-	func getCurrencySymbol(value: Int) -> UIImage {
-		let bundle = FlagKit.assetBundle
-		guard let name = flags[value] else {
-			return UIImage(named: "CY", in: bundle, compatibleWith: nil)!
-		}
-		return UIImage(named: name, in: bundle, compatibleWith: nil)!
+	func getInfo() {
+		coordinator?.getInfo(message: alertMessage)
 	}
+
 }

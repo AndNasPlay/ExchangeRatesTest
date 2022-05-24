@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MainViewController: UIViewController, MainViewControllerViewDelegate {
+final class MainViewController: UIViewController, MainViewControllerViewDelegate {
 
 	var viewModel: MainViewModel?
 

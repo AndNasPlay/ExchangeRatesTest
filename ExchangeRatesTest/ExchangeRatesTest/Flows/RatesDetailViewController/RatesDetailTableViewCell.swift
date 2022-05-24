@@ -7,13 +7,12 @@
 
 import UIKit
 
-class RatesDetailTableViewCell: UITableViewCell {
+final class RatesDetailTableViewCell: UITableViewCell {
 
 	// MARK: Variables
 
 	let identifier: String = "ratesDetailTableViewCell"
 
-	private let symbolImageViewWidthAndHeightAnchor: CGFloat = 50.0
 	private let titleLableWidthAnchor: CGFloat = 0.3
 	private let labelFontSize: CGFloat = 18.0
 	private(set) lazy var stackViewPadding: CGFloat = 20.0
@@ -31,8 +30,8 @@ class RatesDetailTableViewCell: UITableViewCell {
 		let image = UIImageView()
 		image.translatesAutoresizingMaskIntoConstraints = false
 		image.tintColor = .mainRedColor
-		image.image = UIImage(systemName: "diamond.circle.fill")
-		image.contentMode = .scaleAspectFill
+		image.image = UIImage(systemName: "circle.circle.fill")
+		image.contentMode = .scaleAspectFit
 		return image
 	}()
 
@@ -118,8 +117,6 @@ class RatesDetailTableViewCell: UITableViewCell {
 
 	private func setupConstraints() {
 		NSLayoutConstraint.activate([
-
-			self.symbolImageView.widthAnchor.constraint(equalToConstant: symbolImageViewWidthAndHeightAnchor),
 
 			self.titleLable.widthAnchor.constraint(equalTo: self.lablesStackView.widthAnchor,
 												   multiplier: titleLableWidthAnchor),

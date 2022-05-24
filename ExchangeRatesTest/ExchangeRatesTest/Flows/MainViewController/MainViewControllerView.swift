@@ -11,7 +11,7 @@ protocol MainViewControllerViewDelegate: AnyObject {
 	func getRates()
 }
 
-class MainViewControllerView: UIView {
+final class MainViewControllerView: UIView {
 
 	// MARK: Variables
 
@@ -43,6 +43,7 @@ class MainViewControllerView: UIView {
 		button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
 		button.layer.cornerRadius = mainButtonHeightAnchor / 4
 		button.titleLabel?.adjustsFontSizeToFitWidth = true
+		button.accessibilityIdentifier = "mainButton"
 		return button
 	}()
 
@@ -71,7 +72,9 @@ class MainViewControllerView: UIView {
 		self.addSubview(logoImageView)
 		self.addSubview(mainButton)
 		setupConstraints()
-		self.mainButton.addTarget(self, action: #selector(handleGetRates), for: .touchUpInside)
+		self.mainButton.addTarget(self,
+								  action: #selector(handleGetRates),
+								  for: .touchUpInside)
 	}
 
 	// MARK: - Constraints init
