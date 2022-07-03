@@ -16,15 +16,4 @@ struct RatesResults: Decodable {
 	let code: Int?
 	let downloadDate: String?
 	let rates: [Rates]?
-
-	enum CodingKeys: String, CodingKey {
-		case productState
-		case message
-		case rid
-		case ratesDate
-		case messageTitle
-		case code
-		case downloadDate
-		case rates
-	}
 }

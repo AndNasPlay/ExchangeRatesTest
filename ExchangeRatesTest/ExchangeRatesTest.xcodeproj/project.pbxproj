@@ -149,8 +149,9 @@
 		16BE14C0283933B400C7307E /* ExchangeRatesTest */ = {
 			isa = PBXGroup;
 			children = (
+				16FADCB7287210E30080754F /* Extensions */,
 				16BE14FC2839372F00C7307E /* Flows */,
-				16BE14FA2839370900C7307E /* BusinessLogic */,
+				16BE151D283A45C000C7307E /* Coordinators */,
 				16BE14FE283937CB00C7307E /* Models */,
 				16BE14FD283937C000C7307E /* ViewModels */,
 				16BE15152839710D00C7307E /* Helpers */,
@@ -179,22 +180,13 @@
 		16BE14F62839351900C7307E /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				16BE14C3283933B400C7307E /* SceneDelegate.swift */,
 				16BE14C1283933B400C7307E /* AppDelegate.swift */,
 				16BE14CF283933B800C7307E /* Info.plist */,
 				16BE14CC283933B800C7307E /* LaunchScreen.storyboard */,
 				16BE14CA283933B800C7307E /* Assets.xcassets */,
 			);
 			path = Resource;
-			sourceTree = "<group>";
-		};
-		16BE14FA2839370900C7307E /* BusinessLogic */ = {
-			isa = PBXGroup;
-			children = (
-				16BE14C3283933B400C7307E /* SceneDelegate.swift */,
-				16BE151D283A45C000C7307E /* Coordinators */,
-				16BE150528393E6400C7307E /* NetworkManager */,
-			);
-			path = BusinessLogic;
 			sourceTree = "<group>";
 		};
 		16BE14FC2839372F00C7307E /* Flows */ = {
@@ -267,8 +259,7 @@
 		16BE15152839710D00C7307E /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				16BE15162839713500C7307E /* UIColorExtension.swift */,
-				167D8588283CED59003C806B /* GetCurrencyFlag.swift */,
+				16BE150528393E6400C7307E /* NetworkManager */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -283,6 +274,15 @@
 				16BE1528283A676900C7307E /* RatesDetailCoordinator.swift */,
 			);
 			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		16FADCB7287210E30080754F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				16BE15162839713500C7307E /* UIColorExtension.swift */,
+				167D8588283CED59003C806B /* GetCurrencyFlag.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

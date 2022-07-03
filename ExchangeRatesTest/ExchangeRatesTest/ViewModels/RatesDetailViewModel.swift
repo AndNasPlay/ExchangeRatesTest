@@ -5,9 +5,7 @@
 //  Created by Андрей Щекатунов on 22.05.2022.
 //
 
-import Foundation
 import RxSwift
-import RxCocoa
 import UIKit
 
 final class RatesDetailViewModel {
@@ -30,7 +28,7 @@ final class RatesDetailViewModel {
 
 	func getSequence() {
 		guard rates != nil else { return }
-		var sequence: [String] = [String]()
+		var sequence = [String]()
 		sequence.append(rates?.name ?? "")
 		sequence.append(rates?.buy ?? "")
 		sequence.append(rates?.deltaBuy ?? "")
