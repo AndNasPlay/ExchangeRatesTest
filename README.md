@@ -8,7 +8,7 @@ _Написать iOS мобильное приложение по отобра�
 
 The application meant to find information about current exchange rate from API and displays on the screen.
 
-![alt text](https://github.com/AndNasPlay/ExchangeRatesTest/blob/main/ReadmeFiles/secondScreen.jpg "screen")
+![alt text](https://github.com/AndNasPlay/ExchangeRatesTest/blob/main/ReadmeFiles/secondScr.jpg "screen")
 
 ## Features
 Swift Programming Language, Architecture: MVVM - C + RxSwift, UIKit, Custom UITableViewCell, URLSession, UITests, UnitTests, FlagKit
