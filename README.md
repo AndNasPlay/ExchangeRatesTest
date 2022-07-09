@@ -11,7 +11,9 @@ The application meant to find information about current exchange rate from API a
 ![alt text](https://github.com/AndNasPlay/ExchangeRatesTest/blob/main/ReadmeFiles/secondScr.jpg "screen")
 
 ## Features
-Swift Programming Language, Architecture: MVVM - C + RxSwift, UIKit, Custom UITableViewCell, URLSession, UITests, UnitTests, FlagKit
+Swift Programming Language 
+Architecture: MVVM + Coordinators + RxSwift
+UIKit, Custom UITableViewCell, URLSession, UITests, UnitTests, FlagKit
 
 ## Requirements
 
