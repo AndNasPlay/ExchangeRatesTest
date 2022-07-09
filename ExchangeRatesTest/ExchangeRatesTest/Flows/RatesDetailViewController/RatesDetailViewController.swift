@@ -8,7 +8,6 @@
 import UIKit
 import FlagKit
 import RxSwift
-import RxCocoa
 
 final class RatesDetailViewController: UIViewController {
 

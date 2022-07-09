@@ -9,7 +9,7 @@ import Foundation
 
 final class MainViewModel {
 
-	var coordinator: MainCoordinator?
+	var coordinator: MainScreenCoordinator?
 
 	func getRates() {
 		coordinator?.mainButtonTouchUpInside()

@@ -15,7 +15,7 @@ final class RatesListCoordinator: Coordinator {
 
 	let ratesListViewController = RatesListViewController()
 
-	var parentCoordinator: MainCoordinator?
+	var parentCoordinator: MainScreenCoordinator?
 
 	init(navigationController: UINavigationController) {
 		self.navigationController = navigationController

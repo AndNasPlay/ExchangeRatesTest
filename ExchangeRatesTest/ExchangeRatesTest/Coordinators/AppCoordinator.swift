@@ -20,7 +20,7 @@ final class AppCoordinator: Coordinator {
 	func start() {
 		let naviganionController = UINavigationController()
 		naviganionController.navigationBar.tintColor = .mainRedColor
-		let mainCoordinator = MainCoordinator(navigationController: naviganionController)
+		let mainCoordinator = MainScreenCoordinator(navigationController: naviganionController)
 		naviganionController.isNavigationBarHidden = false
 		childCoordinators.append(mainCoordinator)
 		mainCoordinator.start()

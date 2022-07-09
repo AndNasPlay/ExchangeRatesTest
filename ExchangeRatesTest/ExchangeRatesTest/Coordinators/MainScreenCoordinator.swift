@@ -1,5 +1,5 @@
 //
-//  MainCoordinator.swift
+//  MainScreenCoordinator.swift
 //  ExchangeRatesTest
 //
 //  Created by Андрей Щекатунов on 22.05.2022.
@@ -7,9 +7,11 @@
 
 import UIKit
 
-final class MainCoordinator: Coordinator {
+final class MainScreenCoordinator: Coordinator {
 
 	private(set) var childCoordinators: [Coordinator] = []
+
+	let networkManager = NetworkManager()
 
 	private let navigationController: UINavigationController
 
@@ -30,6 +32,13 @@ final class MainCoordinator: Coordinator {
 		ratesListCoordinator.parentCoordinator = self
 		childCoordinators.append(ratesListCoordinator)
 		ratesListCoordinator.start()
+
+		networkManager.getCurrencies { (currencies, error) in
+			DispatchQueue.main.async {
+				print(currencies?.message)
+				print(error)
+			}
+		}
 	}
 
 	func childDidFinish(_ childCoordinator: Coordinator) { }

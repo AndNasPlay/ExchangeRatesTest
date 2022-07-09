@@ -11,7 +11,7 @@ import XCTest
 class ExchangeRatesTestGetDataTest: XCTestCase {
 
 	func testGetData() throws {
-		let getData = try XCTUnwrap(NetworkManager.shared)
+		let getData = try XCTUnwrap(OldNetworkManager.shared)
 		getData.getRequestForRates { response, message in
 			switch response {
 			case .some(let model):

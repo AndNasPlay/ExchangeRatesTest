@@ -1,5 +1,5 @@
 //
-//  NetworkManager.swift
+//  OldNetworkManager.swift
 //  ExchangeRatesTest
 //
 //  Created by Андрей Щекатунов on 21.05.2022.
@@ -7,9 +7,9 @@
 
 import UIKit
 
-final class NetworkManager {
+final class OldNetworkManager {
 
-	static let shared = NetworkManager()
+	static let shared = OldNetworkManager()
 
 	private let baseURL = "https://alpha.as50464.net:29870/moby-pre-44/core"
 
@@ -23,8 +23,7 @@ final class NetworkManager {
 
 	func getRequestForRates(completion: @escaping (RatesResults?, String?) -> Void) {
 
-		let endURL = baseURL + "?r=\(rid)" + "&d=\(uid)&" + "&t=\(type)"
-
+		let endURL = baseURL + "?r=\(rid)" + "&d=\(uid)" + "&t=\(type)"
 		guard let url = URL(string: endURL) else {
 			completion(nil, "Ошибка Url Адреса")
 			return

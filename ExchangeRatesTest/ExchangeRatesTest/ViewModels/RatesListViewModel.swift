@@ -24,7 +24,7 @@ final class RatesListViewModel {
 
 	func fetchRates() {
 
-		NetworkManager.shared.getRequestForRates { [unowned self] (responseModel, massage) in
+		OldNetworkManager.shared.getRequestForRates { [unowned self] (responseModel, massage) in
 
 			guard let model = responseModel?.rates else { return }
 			self.ratesModelArray = model

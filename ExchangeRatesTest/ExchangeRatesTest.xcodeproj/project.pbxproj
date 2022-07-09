@@ -24,7 +24,7 @@
 		16BE15022839385600C7307E /* RatesResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BE15012839385600C7307E /* RatesResults.swift */; };
 		16BE1504283938B100C7307E /* RatesListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BE1503283938B100C7307E /* RatesListViewModel.swift */; };
 		16BE150728393EF900C7307E /* CurrencySymbols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BE150628393EF900C7307E /* CurrencySymbols.swift */; };
-		16BE15092839418300C7307E /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BE15082839418300C7307E /* NetworkManager.swift */; };
+		16BE15092839418300C7307E /* OldNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BE15082839418300C7307E /* OldNetworkManager.swift */; };
 		16BE150B283945C000C7307E /* RatesListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BE150A283945C000C7307E /* RatesListTableViewCell.swift */; };
 		16BE150D2839561D00C7307E /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BE150C2839561C00C7307E /* AppCoordinator.swift */; };
 		16BE15142839704600C7307E /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BE15132839704600C7307E /* MainViewController.swift */; };
@@ -37,8 +37,17 @@
 		16BE1525283A60D200C7307E /* RatesDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BE1524283A60D200C7307E /* RatesDetailViewController.swift */; };
 		16BE1527283A619F00C7307E /* RatesDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BE1526283A619F00C7307E /* RatesDetailViewModel.swift */; };
 		16BE1529283A676900C7307E /* RatesDetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BE1528283A676900C7307E /* RatesDetailCoordinator.swift */; };
-		16BE152B283A68C000C7307E /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BE152A283A68C000C7307E /* MainCoordinator.swift */; };
+		16BE152B283A68C000C7307E /* MainScreenCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BE152A283A68C000C7307E /* MainScreenCoordinator.swift */; };
 		16BE152D283A68F700C7307E /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BE152C283A68F700C7307E /* MainViewModel.swift */; };
+		16EC030E2879CA9D00DCB90F /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EC030D2879CA9D00DCB90F /* HTTPMethod.swift */; };
+		16EC03102879CAC100DCB90F /* HTTPTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EC030F2879CAC100DCB90F /* HTTPTask.swift */; };
+		16EC03122879CADD00DCB90F /* EndPointType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EC03112879CADD00DCB90F /* EndPointType.swift */; };
+		16EC03152879CB0B00DCB90F /* CurrencyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EC03142879CB0B00DCB90F /* CurrencyModel.swift */; };
+		16EC03182879D3BC00DCB90F /* CurrencyEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EC03172879D3BC00DCB90F /* CurrencyEndPoint.swift */; };
+		16EC031B2879D44800DCB90F /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EC031A2879D44800DCB90F /* ParameterEncoding.swift */; };
+		16EC031D2879D47100DCB90F /* URLParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EC031C2879D47100DCB90F /* URLParameterEncoding.swift */; };
+		16EC031F2879D4AB00DCB90F /* JSONParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EC031E2879D4AB00DCB90F /* JSONParameterEncoder.swift */; };
+		16EC03222879D4D100DCB90F /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EC03212879D4D100DCB90F /* ApiClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,7 +88,7 @@
 		16BE15012839385600C7307E /* RatesResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesResults.swift; sourceTree = "<group>"; };
 		16BE1503283938B100C7307E /* RatesListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesListViewModel.swift; sourceTree = "<group>"; };
 		16BE150628393EF900C7307E /* CurrencySymbols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencySymbols.swift; sourceTree = "<group>"; };
-		16BE15082839418300C7307E /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		16BE15082839418300C7307E /* OldNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OldNetworkManager.swift; sourceTree = "<group>"; };
 		16BE150A283945C000C7307E /* RatesListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesListTableViewCell.swift; sourceTree = "<group>"; };
 		16BE150C2839561C00C7307E /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		16BE15132839704600C7307E /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -92,8 +101,17 @@
 		16BE1524283A60D200C7307E /* RatesDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesDetailViewController.swift; sourceTree = "<group>"; };
 		16BE1526283A619F00C7307E /* RatesDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesDetailViewModel.swift; sourceTree = "<group>"; };
 		16BE1528283A676900C7307E /* RatesDetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesDetailCoordinator.swift; sourceTree = "<group>"; };
-		16BE152A283A68C000C7307E /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		16BE152A283A68C000C7307E /* MainScreenCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenCoordinator.swift; sourceTree = "<group>"; };
 		16BE152C283A68F700C7307E /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		16EC030D2879CA9D00DCB90F /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		16EC030F2879CAC100DCB90F /* HTTPTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPTask.swift; sourceTree = "<group>"; };
+		16EC03112879CADD00DCB90F /* EndPointType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPointType.swift; sourceTree = "<group>"; };
+		16EC03142879CB0B00DCB90F /* CurrencyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyModel.swift; sourceTree = "<group>"; };
+		16EC03172879D3BC00DCB90F /* CurrencyEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyEndPoint.swift; sourceTree = "<group>"; };
+		16EC031A2879D44800DCB90F /* ParameterEncoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParameterEncoding.swift; sourceTree = "<group>"; };
+		16EC031C2879D47100DCB90F /* URLParameterEncoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLParameterEncoding.swift; sourceTree = "<group>"; };
+		16EC031E2879D4AB00DCB90F /* JSONParameterEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParameterEncoder.swift; sourceTree = "<group>"; };
+		16EC03212879D4D100DCB90F /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -222,7 +240,7 @@
 		16BE150528393E6400C7307E /* NetworkManager */ = {
 			isa = PBXGroup;
 			children = (
-				16BE15082839418300C7307E /* NetworkManager.swift */,
+				16BE15082839418300C7307E /* OldNetworkManager.swift */,
 			);
 			path = NetworkManager;
 			sourceTree = "<group>";
@@ -259,6 +277,7 @@
 		16BE15152839710D00C7307E /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				16EC030B2879CA7C00DCB90F /* Network */,
 				16BE150528393E6400C7307E /* NetworkManager */,
 			);
 			path = Helpers;
@@ -269,11 +288,67 @@
 			children = (
 				167D8586283C1FE1003C806B /* Coordinator.swift */,
 				16BE150C2839561C00C7307E /* AppCoordinator.swift */,
-				16BE152A283A68C000C7307E /* MainCoordinator.swift */,
+				16BE152A283A68C000C7307E /* MainScreenCoordinator.swift */,
 				16BE151E283A469600C7307E /* RatesListCoordinator.swift */,
 				16BE1528283A676900C7307E /* RatesDetailCoordinator.swift */,
 			);
 			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		16EC030B2879CA7C00DCB90F /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				16EC03202879D4C300DCB90F /* Client */,
+				16EC03192879D43C00DCB90F /* Encoding */,
+				16EC03162879D3AA00DCB90F /* EndPoint */,
+				16EC03132879CB0200DCB90F /* Model */,
+				16EC030C2879CA8500DCB90F /* Service */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		16EC030C2879CA8500DCB90F /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				16EC030D2879CA9D00DCB90F /* HTTPMethod.swift */,
+				16EC030F2879CAC100DCB90F /* HTTPTask.swift */,
+				16EC03112879CADD00DCB90F /* EndPointType.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		16EC03132879CB0200DCB90F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				16EC03142879CB0B00DCB90F /* CurrencyModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		16EC03162879D3AA00DCB90F /* EndPoint */ = {
+			isa = PBXGroup;
+			children = (
+				16EC03172879D3BC00DCB90F /* CurrencyEndPoint.swift */,
+			);
+			path = EndPoint;
+			sourceTree = "<group>";
+		};
+		16EC03192879D43C00DCB90F /* Encoding */ = {
+			isa = PBXGroup;
+			children = (
+				16EC031A2879D44800DCB90F /* ParameterEncoding.swift */,
+				16EC031C2879D47100DCB90F /* URLParameterEncoding.swift */,
+				16EC031E2879D4AB00DCB90F /* JSONParameterEncoder.swift */,
+			);
+			path = Encoding;
+			sourceTree = "<group>";
+		};
+		16EC03202879D4C300DCB90F /* Client */ = {
+			isa = PBXGroup;
+			children = (
+				16EC03212879D4D100DCB90F /* ApiClient.swift */,
+			);
+			path = Client;
 			sourceTree = "<group>";
 		};
 		16FADCB7287210E30080754F /* Extensions */ = {
@@ -448,21 +523,30 @@
 			files = (
 				16BE1504283938B100C7307E /* RatesListViewModel.swift in Sources */,
 				16BE150728393EF900C7307E /* CurrencySymbols.swift in Sources */,
+				16EC031D2879D47100DCB90F /* URLParameterEncoding.swift in Sources */,
 				16BE150D2839561D00C7307E /* AppCoordinator.swift in Sources */,
 				16BE15142839704600C7307E /* MainViewController.swift in Sources */,
 				16BE151F283A469600C7307E /* RatesListCoordinator.swift in Sources */,
 				167D8589283CED59003C806B /* GetCurrencyFlag.swift in Sources */,
-				16BE152B283A68C000C7307E /* MainCoordinator.swift in Sources */,
+				16BE152B283A68C000C7307E /* MainScreenCoordinator.swift in Sources */,
 				16BE1521283A5D7500C7307E /* RatesDetailView.swift in Sources */,
+				16EC030E2879CA9D00DCB90F /* HTTPMethod.swift in Sources */,
 				16BE15002839380900C7307E /* Rates.swift in Sources */,
+				16EC03222879D4D100DCB90F /* ApiClient.swift in Sources */,
 				16BE151C283A429600C7307E /* MainViewControllerView.swift in Sources */,
+				16EC03122879CADD00DCB90F /* EndPointType.swift in Sources */,
+				16EC031B2879D44800DCB90F /* ParameterEncoding.swift in Sources */,
+				16EC03182879D3BC00DCB90F /* CurrencyEndPoint.swift in Sources */,
 				16BE1525283A60D200C7307E /* RatesDetailViewController.swift in Sources */,
+				16EC031F2879D4AB00DCB90F /* JSONParameterEncoder.swift in Sources */,
 				16BE15022839385600C7307E /* RatesResults.swift in Sources */,
+				16EC03152879CB0B00DCB90F /* CurrencyModel.swift in Sources */,
 				16BE1529283A676900C7307E /* RatesDetailCoordinator.swift in Sources */,
 				16BE151A28397C4700C7307E /* RatesListView.swift in Sources */,
 				16BE15172839713500C7307E /* UIColorExtension.swift in Sources */,
-				16BE15092839418300C7307E /* NetworkManager.swift in Sources */,
+				16BE15092839418300C7307E /* OldNetworkManager.swift in Sources */,
 				16BE14C6283933B400C7307E /* RatesListViewController.swift in Sources */,
+				16EC03102879CAC100DCB90F /* HTTPTask.swift in Sources */,
 				16BE1523283A60A000C7307E /* RatesDetailTableViewCell.swift in Sources */,
 				167D8587283C1FE2003C806B /* Coordinator.swift in Sources */,
 				16BE14C2283933B400C7307E /* AppDelegate.swift in Sources */,
