@@ -59,19 +59,18 @@ final class OldNetworkManager {
 			do {
 				let responseData = try JSONDecoder().decode(RatesResults.self, from: data)
 				let alertMessage =
-									  """
-									  Message: \(responseData.message ?? "message"),
-									  Product State: \(responseData.productState ?? 0),
-									  DownloadDate: \(responseData.downloadDate ?? "Download Date"),
-									  Rid: \(responseData.rid ?? "Rid"),
-									  RatesDate: \(responseData.ratesDate ?? "RatesDate"),
-									  MessageTitle: \(responseData.messageTitle ?? "MessageTitle"),
-									  Code: \(responseData.code ?? 0)
-									  """
+		   """
+		   Message: \(responseData.message ?? "message"),
+		   Product State: \(responseData.productState ?? 0),
+		   DownloadDate: \(responseData.downloadDate ?? "Download Date"),
+		   Rid: \(responseData.rid ?? "Rid"),
+		   RatesDate: \(responseData.ratesDate ?? "RatesDate"),
+		   MessageTitle: \(responseData.messageTitle ?? "MessageTitle"),
+		   Code: \(responseData.code ?? 0)
+		   """
 				completion(responseData, alertMessage)
 
 			} catch {
-				print(error.localizedDescription)
 				completion(nil, error.localizedDescription)
 			}
 		}

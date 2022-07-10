@@ -24,7 +24,6 @@ extension CurrencyApi: EndPointType {
 		print(components.url?.absoluteString as Any)
 
 		return components.url!
-
 	}
 
 	var path: String {
@@ -61,13 +60,18 @@ extension CurrencyApi: EndPointType {
 	var task: HTTPTask {
 		switch self {
 		case .base:
-			return .requestParameters(bodyParameters: bodyJSON,
-									  bodyEncoding: .jsonEncoding,
-									  urlParameters: nil)
+			return .requestParametersAndHeaders(bodyParameters: bodyJSON,
+												bodyEncoding: .jsonEncoding,
+												urlParameters: nil,
+												additionHeaders: headers)
 		}
 	}
 
 	var headers: HTTPHeaders? {
-		return nil
+		return [
+			"User-Agent": "Test GeekBrains iOS 3.0.0.182 (iPhone 11; iOS 14.4.1; Scale/2.00; Private)",
+			"Content-Type": "application/json",
+			"Accept": "application/json"
+		]
 	}
 }

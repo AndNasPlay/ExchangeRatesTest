@@ -32,13 +32,6 @@ final class MainScreenCoordinator: Coordinator {
 		ratesListCoordinator.parentCoordinator = self
 		childCoordinators.append(ratesListCoordinator)
 		ratesListCoordinator.start()
-
-		networkManager.getCurrencies { (currencies, error) in
-			DispatchQueue.main.async {
-				print(currencies?.message)
-				print(error)
-			}
-		}
 	}
 
 	func childDidFinish(_ childCoordinator: Coordinator) { }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1637BC7E287ACB6300125019 /* NetworkRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1637BC7D287ACB6300125019 /* NetworkRouter.swift */; };
 		166D5187283ABF8B0084BE52 /* FlagKit in Frameworks */ = {isa = PBXBuildFile; productRef = 166D5186283ABF8B0084BE52 /* FlagKit */; };
 		167D8587283C1FE2003C806B /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167D8586283C1FE1003C806B /* Coordinator.swift */; };
 		167D8589283CED59003C806B /* GetCurrencyFlag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167D8588283CED59003C806B /* GetCurrencyFlag.swift */; };
@@ -68,6 +69,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1637BC7D287ACB6300125019 /* NetworkRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRouter.swift; sourceTree = "<group>"; };
 		167D8586283C1FE1003C806B /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		167D8588283CED59003C806B /* GetCurrencyFlag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCurrencyFlag.swift; sourceTree = "<group>"; };
 		167D858A283CF295003C806B /* ExchangeRatesTestGetCurrencyFlagTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRatesTestGetCurrencyFlagTest.swift; sourceTree = "<group>"; };
@@ -313,6 +315,7 @@
 				16EC030D2879CA9D00DCB90F /* HTTPMethod.swift */,
 				16EC030F2879CAC100DCB90F /* HTTPTask.swift */,
 				16EC03112879CADD00DCB90F /* EndPointType.swift */,
+				1637BC7D287ACB6300125019 /* NetworkRouter.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -552,6 +555,7 @@
 				16BE14C2283933B400C7307E /* AppDelegate.swift in Sources */,
 				16BE150B283945C000C7307E /* RatesListTableViewCell.swift in Sources */,
 				16BE1527283A619F00C7307E /* RatesDetailViewModel.swift in Sources */,
+				1637BC7E287ACB6300125019 /* NetworkRouter.swift in Sources */,
 				16BE152D283A68F700C7307E /* MainViewModel.swift in Sources */,
 				16BE14C4283933B400C7307E /* SceneDelegate.swift in Sources */,
 			);

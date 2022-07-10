@@ -9,13 +9,8 @@ import Foundation
 
 public typealias NetworkRouterCompletion = (_ data: Data?, _ response: URLResponse?, _ error: Error?) -> Void
 
-protocol NetworkRouter: AnyObject {
-	associatedtype EndPoint: EndPointType
-	func request(_ route: EndPoint, completion: @escaping NetworkRouterCompletion)
-	func cancel()
-}
-
 class Router<EndPoint: EndPointType>: NetworkRouter {
+
 	private var task: URLSessionTask?
 
 	func request(_ route: EndPoint, completion: @escaping NetworkRouterCompletion) {
@@ -37,9 +32,7 @@ class Router<EndPoint: EndPointType>: NetworkRouter {
 
 	fileprivate func buildRequest(from route: EndPoint) throws -> URLRequest {
 
-		var request = URLRequest(url: route.baseURL,
-								 cachePolicy: .reloadIgnoringLocalAndRemoteCacheData,
-								 timeoutInterval: 10.0)
+		var request = URLRequest(url: route.baseURL)
 
 		request.httpMethod = route.httpMethod.rawValue
 		do {
@@ -78,13 +71,14 @@ class Router<EndPoint: EndPointType>: NetworkRouter {
 		urlParameters: Parameters?,
 		request: inout URLRequest) throws {
 
-		do {
-			try bodyEncoding.encode(urlRequest: &request,
-									bodyParameters: bodyParameters, urlParameters: urlParameters)
-		} catch {
-			throw error
+			do {
+				try bodyEncoding.encode(urlRequest: &request,
+										bodyParameters: bodyParameters,
+										urlParameters: urlParameters)
+			} catch {
+				throw error
+			}
 		}
-	}
 
 	fileprivate func addAdditionalHeaders(_ additionalHeaders: HTTPHeaders?, request: inout URLRequest) {
 		guard let headers = additionalHeaders else { return }
@@ -132,10 +126,8 @@ struct NetworkManager {
 						let jsonData = try JSONSerialization.jsonObject(with: responseData, options: .mutableContainers)
 						print(jsonData)
 						let apiResponse = try JSONDecoder().decode(CurrencyData.self, from: responseData)
-						print(apiResponse)
 						completion(apiResponse, nil)
 					} catch {
-						print(error)
 						completion(nil, NetworkResponse.unableToDecode.rawValue)
 					}
 				case .failure(let networkFailureError):
