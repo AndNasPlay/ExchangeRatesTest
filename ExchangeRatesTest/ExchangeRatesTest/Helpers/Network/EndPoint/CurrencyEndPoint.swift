@@ -21,7 +21,6 @@ extension CurrencyApi: EndPointType {
 		components.path =  path
 		components.port = 29870
 		components.queryItems = queryItems
-		print(components.url?.absoluteString as Any)
 
 		return components.url!
 	}

@@ -20,16 +20,22 @@ final class RatesListViewModel {
 
 	private var ratesModelArray: [Rates] = [Rates]()
 
+	private let networkManager = NetworkManager.shared
+
 	var alertMessage: String = ""
 
 	func fetchRates() {
 
-		OldNetworkManager.shared.getRequestForRates { [unowned self] (responseModel, massage) in
-
-			guard let model = responseModel?.rates else { return }
+		networkManager.getCurrencies { [weak self] (currency, message, error) in
+			guard let self = self else { return }
+			guard let model = currency?.rates else { return }
 			self.ratesModelArray = model
 			self.rates.on(.next(model))
-			alertMessage = massage ?? ""
+			if error == nil {
+				self.alertMessage = message ?? ""
+			} else {
+				self.alertMessage = error ?? ""
+			}
 		}
 	}
 

@@ -11,9 +11,9 @@ import XCTest
 class ExchangeRatesTestGetDataTest: XCTestCase {
 
 	func testGetData() throws {
-		let getData = try XCTUnwrap(OldNetworkManager.shared)
-		getData.getRequestForRates { response, message in
-			switch response {
+		let getData = try XCTUnwrap(NetworkManager.shared)
+		getData.getCurrencies { currency, message, _ in
+			switch currency {
 			case .some(let model):
 				XCTAssertEqual(model.rates?.count ?? 0 > 0, true)
 			case .none:
